@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+
+import  React from 'react';
+import {  BrowserRouter , Routes, Route } from "react-router-dom";
+import MyTraining from './MyTraining/MyTraining';
+import Home from './Home/Home';
+import MyDiet from './MyDiet/MyDitet';
+import Timer from './Timer/Timer';
+import DayGym from './DayGym/DayGym';
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Home/>}/>
+        <Route path="/MyTraining" element={<MyTraining/>} />
+        <Route path="/MyDiet" element={<MyDiet/>} />
+        <Route path="/Timer" element={<Timer/>}/>
+        <Route path="/DayGym" element={<DayGym/>} />
+    </Routes>
+  </BrowserRouter>
+   </>
   );
 }
 
