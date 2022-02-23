@@ -49,7 +49,7 @@ input {
 button {
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: #7f21eb;
+  background-color: blue ;
   color: #f3f3f3;
   border: none;
   font-family: "Roboto", sans-serif;
@@ -57,7 +57,7 @@ button {
 }
 
 button:hover {
-  background-color: #6c13d1;
+  background-color: green ;
   cursor: pointer;
 }
 

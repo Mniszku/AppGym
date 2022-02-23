@@ -3,6 +3,8 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+
 
 
 const Timer = () => {
@@ -20,6 +22,10 @@ const Timer = () => {
       return () => clearInterval(interval);
     }, [running]);
     return (
+      <>
+      <Button variant="contained" color="primary"  path={"/Home"} sx={{width: 100, height: 100}}>
+      <ArrowCircleLeftIcon/>
+      </Button>
       <Grid display="flex" justify="center" container spacing={2}>
          <Grid item xs={5}></Grid>
          <Grid item xs={2}>
@@ -49,7 +55,7 @@ const Timer = () => {
     </Grid>
     <Grid item xs={5}></Grid>
     </Grid>
-    
+    </>
     );
   };
   export default Timer;

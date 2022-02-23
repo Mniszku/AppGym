@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import MealList from "./MealList";
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import Button from '@mui/material/Button';
 
 
 function MyDitet() {
@@ -24,6 +26,11 @@ function MyDitet() {
   }
 
   return (
+      <>
+    <Button variant="contained" color="primary"  path={"/Home"} sx={{width: 100, height: 100}}>
+    <ArrowCircleLeftIcon/>
+    </Button>
+
     <div className="App">
       <section className="controls">
         <input
@@ -35,6 +42,7 @@ function MyDitet() {
       </section>
       {mealData && <MealList mealData={mealData} />}
     </div>
+    </>
   );
 }
 
