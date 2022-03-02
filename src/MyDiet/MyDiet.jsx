@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import MealList from "./MealList";
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
-
-function MyDitet() {
+function MyDiet() {
+  const navigate = useNavigate();
   const [mealData, setMealData] = useState(null);
   const [calories, setCalories] = useState(2000);
 
@@ -27,7 +28,7 @@ function MyDitet() {
 
   return (
       <>
-    <Button variant="contained" color="primary"  path={"/Home"} sx={{width: 100, height: 100}}>
+    <Button  onClick={() => navigate('/')} variant="contained" color="primary"  path={"/Home"} sx={{width: 100, height: 100}}>
     <ArrowCircleLeftIcon/>
     </Button>
 
@@ -46,4 +47,4 @@ function MyDitet() {
   );
 }
 
-export default MyDitet;
+export default MyDiet;

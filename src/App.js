@@ -3,7 +3,7 @@ import  React from 'react';
 import {  BrowserRouter , Routes, Route } from "react-router-dom";
 import MyTraining from './MyTraining/MyTraining';
 import Home from './Home/Home';
-import MyDiet from './MyDiet/MyDitet';
+import MyDiet from './MyDiet/MyDiet';
 import Timer from './Timer/Timer';
 import DayGym from './DayGym/DayGym';
 

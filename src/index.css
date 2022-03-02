@@ -24,7 +24,7 @@ body {
   background-color: lightgrey;
 }
 
-.MyDitet {
+.MyDiet {
   display: flex;
   align-items: center;
   flex-direction: column;
