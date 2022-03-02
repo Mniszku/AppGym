@@ -4,6 +4,7 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
+
 function MyDiet() {
   const navigate = useNavigate();
   const [mealData, setMealData] = useState(null);
@@ -39,7 +40,7 @@ function MyDiet() {
           placeholder="Calories (e.g. 2000)"
           onChange={handleChange}
         />
-        <button onClick={getMealData}>Get Daily Meal Plan</button>
+        <Button onClick={getMealData} variant="contained" color="primary" >Get Daily Meal Plan</Button>
       </section>
       {mealData && <MealList mealData={mealData} />}
     </div>
