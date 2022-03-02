@@ -1,39 +1,92 @@
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid';
+import NotesList from './NotesList';
+import Search from './Search';
+import Header from './Header';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 const MyTraining = () => { 
+  const navigate = useNavigate();
+  const [notes, setNotes] = useState([
+		{
+			id: nanoid(),
+			text: 'This is my first note!',
+			date: '15/04/2021',
+		},
+		{
+			id: nanoid(),
+			text: 'This is my second note!',
+			date: '21/04/2021',
+		},
+		{
+			id: nanoid(),
+			text: 'This is my third note!',
+			date: '28/04/2021',
+		},
+		{
+			id: nanoid(),
+			text: 'This is my new note!',
+			date: '30/04/2021',
+		},
+	]);
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
-      
+	const [searchText, setSearchText] = useState('');
 
+	const [darkMode, setDarkMode] = useState(false);
 
-    const navigate = useNavigate();
+	useEffect(() => {
+		const savedNotes = JSON.parse(
+			localStorage.getItem('react-notes-app-data')
+		);
+
+		if (savedNotes) {
+			setNotes(savedNotes);
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem(
+			'react-notes-app-data',
+			JSON.stringify(notes)
+		);
+	}, [notes]);
+
+	const addTraining = (text) => {
+		const date = new Date();
+		const newNote = {
+			id: nanoid(),
+			text: text,
+			date: date.toLocaleDateString(),
+		};
+		const newNotes = [...notes, newNote];
+		setNotes(newNotes);
+	};
+
+	const deleteNote = (id) => {
+		const newNotes = notes.filter((note) => note.id !== id);
+		setNotes(newNotes);
+	};
 
     return ( 
 <>
-<Button  onClick={() => navigate('/')} variant="contained" color="primary"  path={"/Home"} sx={{width: 100, height: 100}}>
-      <ArrowCircleLeftIcon/>
-      </Button>
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(6)).map((_, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <Item>xs=2</Item>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+<Button  onClick={() => navigate('/')} variant="contained" color="primary" sx={{width: 100, height: 100}}>
+<ArrowCircleLeftIcon/>
+</Button>
+<div className={`${darkMode && 'dark-mode'}`}>
+			<div className='container'>
+				<Header handleToggleDarkMode={setDarkMode} />
+				<Search handleSearchNote={setSearchText} />
+				<NotesList
+					notes={notes.filter((note) =>
+						note.text.toLowerCase().includes(searchText)
+					)}
+					handleAddNote={addTraining}
+					handleDeleteNote={deleteNote}
+				/>
+			</div>
+		</div>
 
 </>
 

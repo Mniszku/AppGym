@@ -20,9 +20,7 @@ import TodayIcon from '@mui/icons-material/Today';
 import { styled } from '@mui/material';
 
 const CustomCalendarPicker = styled(CalendarPicker)({
-  // '&.MuiCalendarPicker-root div': {
-  //   paddingRight: '60px'
-  // 
+
 })
 
 const DayGym = () => { 
@@ -96,7 +94,7 @@ setNote([]);
       aria-label="minimum height"
       minRows={3}
       placeholder="Change day and add note"
-      style={{ width: 770, height: 200 }}
+      style={{ width: 775, height: 210 }}
     />
     </Grid>
     </Card>
