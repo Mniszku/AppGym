@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Meal =({ meal }) => {
+const Meal = ({ meal }) => {
   const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
@@ -28,6 +28,6 @@ const Meal =({ meal }) => {
       <a href={meal.sourceUrl}>Go to Recipe</a>
     </article>
   );
-}
+};
 
 export default Meal;

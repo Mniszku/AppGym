@@ -1,7 +1,7 @@
 import React from "react";
-import Meal from './Meal';
+import Meal from "./Meal";
 
-const  MealList = ({ mealData }) => {
+const MealList = ({ mealData }) => {
   const nutrients = mealData.nutrients;
 
   return (
@@ -23,6 +23,6 @@ const  MealList = ({ mealData }) => {
       </section>
     </main>
   );
-}
+};
 
 export default MealList;

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import MealList from "./MealList";
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 function MyDiet() {
   const navigate = useNavigate();
@@ -28,22 +27,30 @@ function MyDiet() {
   }
 
   return (
-      <>
-    <Button  onClick={() => navigate('/')} variant="contained" color="primary"  path={"/Home"} sx={{width: 100, height: 100}}>
-    <ArrowCircleLeftIcon/>
-    </Button>
+    <>
+      <Button
+        onClick={() => navigate("/")}
+        variant="contained"
+        color="primary"
+        path={"/Home"}
+        sx={{ width: 100, height: 100 }}
+      >
+        <ArrowCircleLeftIcon />
+      </Button>
 
-    <div className="App">
-      <section className="controls">
-        <input
-          type="number"
-          placeholder="Calories (e.g. 2000)"
-          onChange={handleChange}
-        />
-        <Button onClick={getMealData} variant="contained" color="primary" >Get Daily Meal Plan</Button>
-      </section>
-      {mealData && <MealList mealData={mealData} />}
-    </div>
+      <div className="App">
+        <section className="controls">
+          <input
+            type="number"
+            placeholder="Calories (e.g. 2000)"
+            onChange={handleChange}
+          />
+          <Button onClick={getMealData} variant="contained" color="primary">
+            Get Daily Meal Plan
+          </Button>
+        </section>
+        {mealData && <MealList mealData={mealData} />}
+      </div>
     </>
   );
 }

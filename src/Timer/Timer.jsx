@@ -42,13 +42,13 @@ const Timer = () => {
           </Grid>  
         <Grid sx={{ marginTop: '20%', marginBottom: '10%'}} container direction="column" alignItems="center" justifyContent="center" spacing={2}>
         <Grid item xs={12}>
-          <Button variant="outlined" onClick={() => setRunning(true)}>Start</Button>
+          <Button variant="outlined" color="primary" onClick={() => setRunning(true)}>Start</Button>
           </Grid>
           <Grid item xs={12}>
-          <Button variant="outlined" onClick={() => setRunning(false)}>Stop</Button>
+          <Button variant="outlined" color="primary" onClick={() => setRunning(false)}>Stop</Button>
           </Grid>
           <Grid item xs={12}>
-          <Button variant="outlined" onClick={() => setTime(0)}>Reset</Button> 
+          <Button variant="outlined" color="primary" onClick={() => setTime(0)}>Reset</Button> 
           </Grid>
           </Grid>  
     
