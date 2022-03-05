@@ -31,7 +31,7 @@ const Timer = () => {
       <Grid display="flex" justify="center" container spacing={2}>
          <Grid item xs={5}></Grid>
          <Grid item xs={2}>
-      <Card display="flex" sx={{ width: '100%', marginTop: '80%', maxWidth: 345 }}>
+      <Card display="flex" sx={{ width: '100%', marginTop: '60%', maxWidth: 345 }}>
       <Grid sx={{ marginTop: '15%'}} container direction="column" alignItems="center" justifyContent="center" spacing={2}>
         <Grid item xs={12}>
      
